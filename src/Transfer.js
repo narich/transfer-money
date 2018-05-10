@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './App.css'
 
-class TwoBox extends Component {
+class Transfer extends Component {
 
     render() {
         return (
@@ -22,7 +22,10 @@ class TwoBox extends Component {
                                 onChange={this.props.setStateMoney}
                                 type="number"
                                 value={this.props.moneyTransfer}
-                                min="0" max="30000" />
+                                min="0" max="30000" 
+                                pattern="[0-9]"
+                                
+                                />
                         </div>
                         <p>ค่าธรรมเนียม: ฿ {this.props.tariff}</p>
             </div>
@@ -30,4 +33,4 @@ class TwoBox extends Component {
     }
 }
 
-export default TwoBox;
+export default Transfer;

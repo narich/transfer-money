@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './App.css'
 
-class OneBox extends Component {
+class HomeTransfer extends Component {
 
     render() {
         return (
@@ -21,4 +21,4 @@ class OneBox extends Component {
     }
 }
 
-export default OneBox;
+export default HomeTransfer;
