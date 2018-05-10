@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import style from './App.css'
-import OneBox from './OneBox'
-import TwoBox from './TwoBox'
-import TreeBox from './TreeBox'
+import HomeTransfer from './HomeTransfer'
+import Transfer from './Transfer'
+import SuccessTransfer from './SuccessTransfer'
+import ConfirmTransfer from './ConfirmTransfer'
 import Layout from './Layout'
 import Button from './Button'
 
@@ -21,7 +22,11 @@ class App extends Component {
       listNameTransfer: '',
       resultListNameTransfer: '',
       resultMoneyTransfer: 0,
-      resultMoneyTariff: 0
+      resultMoneyTariff: 0,
+      ConfirmResultListNameTransfer: 0,
+      ConfirmResultMoneyTransfer: 0,
+      ConfirmResultMoneyTariff: 0
+
     }
     this.setStateMoney = this.setStateMoney.bind(this)
     this.calculateMoney = this.calculateMoney.bind(this)
@@ -38,22 +43,33 @@ class App extends Component {
       tariff: this.state.moneyTransfer / 10
     })
   }
-  calculateMoney() {
-    
+  calculateMoney = () => {
     const { money, moneyTransfer, tariff, listNameTransfer } = this.state
-    let calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
-    console.log(this.state.moneyTransfer)
-    console.log(this.state.tariff)
-    console.log(calMoney)
-    console.log(listNameTransfer)
-    if (calMoney >= 0 && moneyTransfer !== 0 && listNameTransfer !== '') {
+    const calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
+    if (calMoney >= 0) {
       this.setState({
         money: calMoney,
         resultMoneyTransfer: moneyTransfer,
         resultMoneyTariff: tariff,
         resultListNameTransfer: listNameTransfer
       })
+      return document.getElementById('four').scrollIntoView();
+    }
+  }
+  setMoneyConfirm = () => {
+    const { money, moneyTransfer, tariff, listNameTransfer } = this.state
+    const calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
+    if (calMoney >= 0 && moneyTransfer !== 0 && moneyTransfer <= 30000 && listNameTransfer !== '') {
+      this.setState({
+        ConfirmMoney: calMoney,
+        ConfirmResultMoneyTransfer: moneyTransfer,
+        ConfirmResultMoneyTariff: tariff,
+        ConfirmResultListNameTransfer: listNameTransfer
+      })
       return document.getElementById('tree').scrollIntoView();
+    }
+    else if (moneyTransfer > 30000) {
+      alert('กรุณากรอกจำนวนเงินน้อยกว่า 30,000!!')
     }
     else if (listNameTransfer === '') {
       alert('กรุณาเลือกบัญชีโอน!!')
@@ -64,7 +80,6 @@ class App extends Component {
     else {
       alert('ยอดเงินคงเหลือไม่พอใช้!!')
     }
-    return calMoney
   }
   setStateEmpty = () => {
     this.setState({
@@ -76,15 +91,18 @@ class App extends Component {
     })
     return document.getElementById('one').scrollIntoView();
   }
+  returnTransfer = () => {
+    return document.getElementById('two').scrollIntoView();
+  }
 
   render() {
     return (
       <div>
         <Layout idBox='one' section='one-section'>
-          <OneBox name={this.state.name} money={this.state.money}/>
+          <HomeTransfer name={this.state.name} money={this.state.money} />
         </Layout>
         <Layout idBox='two' section='two-section'>
-          <TwoBox
+          <Transfer
             setStateNameTransfer={this.setStateNameTransfer}
             money={this.state.money}
             listName={this.state.listName}
@@ -100,11 +118,28 @@ class App extends Component {
           <Button
             valueButton='โอน'
             styleButton='font-Athiti'
-            evtButton= {this.calculateMoney}
+            evtButton={this.setMoneyConfirm}
           />
         </Layout>
         <Layout idBox='tree' section='tree-section'>
-          <TreeBox
+          <ConfirmTransfer
+            ConfirmResultListNameTransfer={this.state.ConfirmResultListNameTransfer}
+            ConfirmResultMoneyTransfer={this.state.ConfirmResultMoneyTransfer}
+            ConfirmResultMoneyTariff={this.state.ConfirmResultMoneyTariff}
+          />
+          <Button
+            valueButton='กลับ'
+            styleButton='font-Athiti home-button'
+            evtButton={this.returnTransfer}
+          />
+          <Button
+            valueButton='โอน'
+            styleButton='font-Athiti'
+            evtButton={this.calculateMoney}
+          />
+        </Layout>
+        <Layout idBox='four' section='four-section'>
+          <SuccessTransfer
             resultListNameTransfer={this.state.resultListNameTransfer}
             resultMoneyTransfer={this.state.resultMoneyTransfer}
             resultMoneyTariff={this.state.resultMoneyTariff}
@@ -112,7 +147,7 @@ class App extends Component {
           <Button
             valueButton='กลับสู่หน้าหลัก'
             styleButton='font-Athiti home-button margin-button'
-            evtButton= {this.setStateEmpty}
+            evtButton={this.setStateEmpty}
           />
         </Layout>
       </div>

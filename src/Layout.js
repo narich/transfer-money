@@ -6,8 +6,8 @@ class Layout extends Component {
     render() {
         return (
             <div className="font-Athiti">
-                 <div className="border" id={this.props.idBox}>
-                 <div className={`${this.props.section} border-box-in`}>
+                <div className="border" id={this.props.idBox}>
+                    <div className={`${this.props.section} border-box-in`}>
                         <div className="border-head">
                             <h1>
                                 <span className="font-color-red">
@@ -17,7 +17,7 @@ class Layout extends Component {
                         </div>
                         {this.props.children}
                     </div>
-                 </div>
+                </div>
             </div>
         );
     }
