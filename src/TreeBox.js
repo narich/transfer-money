@@ -22,12 +22,6 @@ class TreeBox extends Component {
                             {this.props.resultMoneyTariff}
                         </span>
                     </p>
-                    <a href="#one">
-                        <button
-                            className="font-Athiti home-button margin-button"
-                            onClick={this.props.setStateEmpty}> กลับสู่หน้าหลัก
-                        </button>
-                    </a>
             </div>
         );
     }

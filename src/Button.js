@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import style from './App.css'
 
 class Button extends Component {
-
+  constructor(props){
+    super(props)
+    console.log(this.props)
+  }
     render() {
         return (
-            <a href="#one">
                         <button
-                            className="font-Athiti home-button margin-button"
-                            onClick={this.props.setStateEmpty}> กลับสู่หน้าหลัก
+                            className={this.props.styleButton}
+                            onClick={this.props.evtButton} >
+                            {this.props.valueButton}
                         </button>
-            </a>
         );
     }
 }

@@ -25,16 +25,6 @@ class TwoBox extends Component {
                                 min="0" max="30000" />
                         </div>
                         <p>ค่าธรรมเนียม: ฿ {this.props.tariff}</p>
-                        <a href="#one">
-                            <button
-                                className="font-Athiti home-button"
-                                onClick={this.props.setStateEmpty}> กลับสู่หน้าหลัก
-                            </button>
-                        </a>
-                        <button
-                            className="font-Athiti"
-                            onClick={this.props.calculateMoney}> โอน
-                        </button>
             </div>
         );
     }

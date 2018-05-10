@@ -4,6 +4,7 @@ import OneBox from './OneBox'
 import TwoBox from './TwoBox'
 import TreeBox from './TreeBox'
 import Layout from './Layout'
+import Button from './Button'
 
 class App extends Component {
 
@@ -38,6 +39,7 @@ class App extends Component {
     })
   }
   calculateMoney() {
+    
     const { money, moneyTransfer, tariff, listNameTransfer } = this.state
     let calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
     console.log(this.state.moneyTransfer)
@@ -72,6 +74,7 @@ class App extends Component {
       resultMoneyTariff: 0,
       resultListNameTransfer: ''
     })
+    return document.getElementById('one').scrollIntoView();
   }
 
   render() {
@@ -88,8 +91,16 @@ class App extends Component {
             setStateMoney={this.setStateMoney}
             moneyTransfer={this.state.moneyTransfer}
             tariff={this.state.tariff}
-            setStateEmpty={this.setStateEmpty}
-            calculateMoney={this.calculateMoney}
+          />
+          <Button
+            valueButton='กลับสู่หน้าหลัก'
+            styleButton='font-Athiti home-button'
+            evtButton={this.setStateEmpty}
+          />
+          <Button
+            valueButton='โอน'
+            styleButton='font-Athiti'
+            evtButton= {this.calculateMoney}
           />
         </Layout>
         <Layout idBox='tree' section='tree-section'>
@@ -97,7 +108,11 @@ class App extends Component {
             resultListNameTransfer={this.state.resultListNameTransfer}
             resultMoneyTransfer={this.state.resultMoneyTransfer}
             resultMoneyTariff={this.state.resultMoneyTariff}
-            setStateEmpty={this.setStateEmpty}
+          />
+          <Button
+            valueButton='กลับสู่หน้าหลัก'
+            styleButton='font-Athiti home-button margin-button'
+            evtButton= {this.setStateEmpty}
           />
         </Layout>
       </div>
