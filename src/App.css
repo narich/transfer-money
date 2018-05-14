@@ -40,6 +40,9 @@ button {
     width: 10%;
     background: #5cb85c;
 } 
+button:hover {
+    opacity: 0.7;
+}
 .home-button {
     border-radius: 8%;
     background: #fff;

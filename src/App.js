@@ -38,7 +38,7 @@ class App extends Component {
   setStateMoney(evt) {
     this.setState({
       moneyTransfer: evt.target.value,
-      tariff: this.state.moneyTransfer / 10
+      tariff: (this.state.moneyTransfer / 10).toFixed(2)
     })
   }
   calculateMoney = () => {
@@ -57,7 +57,7 @@ class App extends Component {
   }
   setMoneyConfirm = () => {
     const { money, moneyTransfer, tariff, listNameTransfer } = this.state
-    const calMoney = money - (moneyTransfer + tariff)
+    const calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
     if (calMoney >= 0 && moneyTransfer !== 0 && moneyTransfer <= 30000 && listNameTransfer !== '') {
       this.setState({
         ConfirmMoney: calMoney,
