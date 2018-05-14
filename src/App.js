@@ -10,12 +10,10 @@ import Button from './Button'
 class App extends Component {
 
   constructor() {
-    const money = 50000
-    parseFloat(money).toFixed(2)
     super()
     this.state = {
       name: 'Kwan Sirikwan',
-      money,
+      money: 50000.00.toFixed(2),
       moneyTransfer: 0,
       tariff: 0,
       listName: ['tarn', 'noon', 'chai', 'eiei'],
@@ -46,9 +44,10 @@ class App extends Component {
   calculateMoney = () => {
     const { money, moneyTransfer, tariff, listNameTransfer } = this.state
     const calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
+    console.log(calMoney)
     if (calMoney >= 0) {
       this.setState({
-        money: calMoney,
+        money: calMoney.toFixed(2),
         resultMoneyTransfer: moneyTransfer,
         resultMoneyTariff: tariff,
         resultListNameTransfer: listNameTransfer
@@ -58,7 +57,7 @@ class App extends Component {
   }
   setMoneyConfirm = () => {
     const { money, moneyTransfer, tariff, listNameTransfer } = this.state
-    const calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
+    const calMoney = money - (moneyTransfer + tariff)
     if (calMoney >= 0 && moneyTransfer !== 0 && moneyTransfer <= 30000 && listNameTransfer !== '') {
       this.setState({
         ConfirmMoney: calMoney,
