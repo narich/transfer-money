@@ -36,9 +36,10 @@ class App extends Component {
     })
   }
   setStateMoney(evt) {
+    const { moneyTransfer } = this.state
     this.setState({
       moneyTransfer: evt.target.value,
-      tariff: (this.state.moneyTransfer / 10).toFixed(2)
+      tariff: (moneyTransfer / 10).toFixed(2)
     })
   }
   calculateMoney = () => {
@@ -98,19 +99,33 @@ class App extends Component {
   }
 
   render() {
+    const {
+      name,
+      money,
+      moneyTransfer,
+      tariff,
+      listName,
+      listNameTransfer,
+      resultListNameTransfer,
+      resultMoneyTransfer,
+      resultMoneyTariff,
+      ConfirmResultListNameTransfer,
+      ConfirmResultMoneyTransfer,
+      ConfirmResultMoneyTariff
+    } = this.state
     return (
       <div>
         <Layout idBox='one' section='one-section'>
-          <HomeTransfer name={this.state.name} money={this.state.money} />
+          <HomeTransfer name={name} money={money} />
         </Layout>
         <Layout idBox='two' section='two-section'>
           <Transfer
             setStateNameTransfer={this.setStateNameTransfer}
-            money={this.state.money}
-            listName={this.state.listName}
+            money={money}
+            listName={listName}
             setStateMoney={this.setStateMoney}
-            moneyTransfer={this.state.moneyTransfer}
-            tariff={this.state.tariff}
+            moneyTransfer={moneyTransfer}
+            tariff={tariff}
           />
           <Button
             valueButton='กลับสู่หน้าหลัก'
@@ -125,9 +140,9 @@ class App extends Component {
         </Layout>
         <Layout idBox='tree' section='tree-section'>
           <ConfirmTransfer
-            ConfirmResultListNameTransfer={this.state.ConfirmResultListNameTransfer}
-            ConfirmResultMoneyTransfer={this.state.ConfirmResultMoneyTransfer}
-            ConfirmResultMoneyTariff={this.state.ConfirmResultMoneyTariff}
+            ConfirmResultListNameTransfer={ConfirmResultListNameTransfer}
+            ConfirmResultMoneyTransfer={ConfirmResultMoneyTransfer}
+            ConfirmResultMoneyTariff={ConfirmResultMoneyTariff}
           />
           <Button
             valueButton='กลับ'
@@ -142,9 +157,9 @@ class App extends Component {
         </Layout>
         <Layout idBox='four' section='four-section'>
           <SuccessTransfer
-            resultListNameTransfer={this.state.resultListNameTransfer}
-            resultMoneyTransfer={this.state.resultMoneyTransfer}
-            resultMoneyTariff={this.state.resultMoneyTariff}
+            resultListNameTransfer={resultListNameTransfer}
+            resultMoneyTransfer={resultMoneyTransfer}
+            resultMoneyTariff={resultMoneyTariff}
           />
           <Button
             valueButton='กลับสู่หน้าหลัก'
