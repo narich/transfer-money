@@ -10,7 +10,7 @@ class Button extends Component {
         return (
             <button
                 className={this.props.styleButton}
-                onClick={this.props.evtButton} >
+                onClick={this.props.onClick} >
                 {this.props.valueButton}
             </button>
         );

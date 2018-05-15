@@ -30,15 +30,15 @@ class App extends Component {
     this.calculateMoney = this.calculateMoney.bind(this)
     this.setStateNameTransfer = this.setStateNameTransfer.bind(this)
   }
-  setStateNameTransfer = (evt) => {
+  setStateNameTransfer = (event) => {
     this.setState({
-      listNameTransfer: evt.target.value
+      listNameTransfer: event.target.value
     })
   }
-  setStateMoney(evt) {
+  setStateMoney(event) {
     const { moneyTransfer } = this.state
     this.setState({
-      moneyTransfer: evt.target.value,
+      moneyTransfer: event.target.value,
       tariff: (moneyTransfer / 10).toFixed(2)
     })
   }
@@ -130,12 +130,12 @@ class App extends Component {
           <Button
             valueButton='กลับสู่หน้าหลัก'
             styleButton='font-Athiti home-button'
-            evtButton={this.setStateEmpty}
+            onClick={this.setStateEmpty}
           />
           <Button
             valueButton='โอน'
             styleButton='font-Athiti'
-            evtButton={this.setMoneyConfirm}
+            onClick={this.setMoneyConfirm}
           />
         </Layout>
         <Layout idBox='tree' section='tree-section'>
@@ -147,12 +147,12 @@ class App extends Component {
           <Button
             valueButton='กลับ'
             styleButton='font-Athiti home-button'
-            evtButton={this.returnTransfer}
+            onClick={this.returnTransfer}
           />
           <Button
             valueButton='โอน'
             styleButton='font-Athiti'
-            evtButton={this.calculateMoney}
+            onClick={this.calculateMoney}
           />
         </Layout>
         <Layout idBox='four' section='four-section'>
@@ -164,7 +164,7 @@ class App extends Component {
           <Button
             valueButton='กลับสู่หน้าหลัก'
             styleButton='font-Athiti home-button margin-button'
-            evtButton={this.setStateEmpty}
+            onClick={this.setStateEmpty}
           />
         </Layout>
       </div>
