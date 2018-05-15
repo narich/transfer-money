@@ -50,7 +50,10 @@ class App extends Component {
         money: calMoney.toFixed(2),
         resultMoneyTransfer: moneyTransfer,
         resultMoneyTariff: tariff,
-        resultListNameTransfer: listNameTransfer
+        resultListNameTransfer: listNameTransfer,
+        ConfirmResultMoneyTransfer: 0,
+        ConfirmResultMoneyTariff: 0,
+        ConfirmResultListNameTransfer: ''
       })
       return document.getElementById('four').scrollIntoView();
     }
