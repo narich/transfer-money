@@ -13,7 +13,7 @@ class HomeTransfer extends Component {
                         <h3>
                             เงินคงเหลือในบัญชี: <span className="font-color-green">{this.props.money}</span> บาท
                         </h3>
-                        <a href="#two">
+                        <a href="#transfer">
                             <button className="font-default"> โอน </button>
                         </a>
             </div>

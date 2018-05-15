@@ -56,7 +56,7 @@ class App extends Component {
         ConfirmResultMoneyTariff: 0,
         ConfirmResultListNameTransfer: ''
       })
-      return document.getElementById('four').scrollIntoView();
+      return document.getElementById('success-transfer').scrollIntoView();
     }
   }
   setMoneyConfirm = () => {
@@ -71,7 +71,7 @@ class App extends Component {
         ConfirmResultMoneyTariff: tariff,
         ConfirmResultListNameTransfer: listNameTransfer
       })
-      return document.getElementById('tree').scrollIntoView();
+      return document.getElementById('confirm-transfer').scrollIntoView();
     }
     else if (moneyTransfer > limitTransfer) {
       alert('กรุณากรอกจำนวนเงินน้อยกว่า 30,000!!')
@@ -94,10 +94,10 @@ class App extends Component {
       resultMoneyTariff: 0,
       resultListNameTransfer: ''
     })
-    return document.getElementById('one').scrollIntoView();
+    return document.getElementById('home-transfer').scrollIntoView();
   }
   returnTransfer = () => {
-    return document.getElementById('two').scrollIntoView();
+    return document.getElementById('transfer').scrollIntoView();
   }
 
   render() {
@@ -117,10 +117,10 @@ class App extends Component {
     } = this.state
     return (
       <div>
-        <Layout idBox='one' section='home-transfer'>
+        <Layout section='home-transfer'>
           <HomeTransfer name={name} money={money} />
         </Layout>
-        <Layout idBox='two' section='transfer'>
+        <Layout section='transfer'>
           <Transfer
             setStateNameTransfer={this.setStateNameTransfer}
             money={money}
@@ -140,7 +140,7 @@ class App extends Component {
             onClick={this.setMoneyConfirm}
           />
         </Layout>
-        <Layout idBox='tree' section='confirm-transfer'>
+        <Layout section='confirm-transfer'>
           <ConfirmTransfer
             ConfirmResultListNameTransfer={ConfirmResultListNameTransfer}
             ConfirmResultMoneyTransfer={ConfirmResultMoneyTransfer}
@@ -157,7 +157,7 @@ class App extends Component {
             onClick={this.calculateMoney}
           />
         </Layout>
-        <Layout idBox='four' section='success-transfer'>
+        <Layout section='success-transfer'>
           <SuccessTransfer
             resultListNameTransfer={resultListNameTransfer}
             resultMoneyTransfer={resultMoneyTransfer}
