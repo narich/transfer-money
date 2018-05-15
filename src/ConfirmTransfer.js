@@ -5,7 +5,7 @@ class ConfirmTransfer extends Component {
 
     render() {
         return (
-            <div className="font-Athiti">
+            <div className="font-default">
                 <h4 className="font-color-green">ยืนยันการโอน</h4>
                 <p>โอนเงินเข้าบัญชี:
                         <span className="font-color-red">

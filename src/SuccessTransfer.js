@@ -5,7 +5,7 @@ class SuccessTransfer extends Component {
 
     render() {
         return (
-            <div className="font-Athiti">
+            <div className="font-default">
                 <h4 className="font-color-green">ทำรายการสำเร็จ</h4>
                 <p>โอนเงินเข้าบัญชี:
                         <span className="font-color-red">

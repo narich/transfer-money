@@ -5,7 +5,7 @@ class Transfer extends Component {
 
     render() {
         return (
-            <div className="font-Athiti">
+            <div className="font-default">
                         <h3>
                             เงินคงเหลือในบัญชี: <span className="font-color-green">{this.props.money}</span>
                         </h3>

@@ -5,7 +5,7 @@ class HomeTransfer extends Component {
 
     render() {
         return (
-            <div className="font-Athiti">
+            <div className="font-default">
                         <h3>
                             ชื่อบัญชี: <span className="font-color-orange">{this.props.name}
                             </span>
@@ -14,7 +14,7 @@ class HomeTransfer extends Component {
                             เงินคงเหลือในบัญชี: <span className="font-color-green">{this.props.money}</span> บาท
                         </h3>
                         <a href="#two">
-                            <button className="font-Athiti"> โอน </button>
+                            <button className="font-default"> โอน </button>
                         </a>
             </div>
         );
