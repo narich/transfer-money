@@ -115,10 +115,10 @@ class App extends Component {
     } = this.state
     return (
       <div>
-        <Layout idBox='one' section='one-section'>
+        <Layout idBox='one' section='home-transfer'>
           <HomeTransfer name={name} money={money} />
         </Layout>
-        <Layout idBox='two' section='two-section'>
+        <Layout idBox='two' section='transfer'>
           <Transfer
             setStateNameTransfer={this.setStateNameTransfer}
             money={money}
@@ -138,7 +138,7 @@ class App extends Component {
             onClick={this.setMoneyConfirm}
           />
         </Layout>
-        <Layout idBox='tree' section='tree-section'>
+        <Layout idBox='tree' section='confirm-transfer'>
           <ConfirmTransfer
             ConfirmResultListNameTransfer={ConfirmResultListNameTransfer}
             ConfirmResultMoneyTransfer={ConfirmResultMoneyTransfer}
@@ -155,7 +155,7 @@ class App extends Component {
             onClick={this.calculateMoney}
           />
         </Layout>
-        <Layout idBox='four' section='four-section'>
+        <Layout idBox='four' section='success-transfer'>
           <SuccessTransfer
             resultListNameTransfer={resultListNameTransfer}
             resultMoneyTransfer={resultMoneyTransfer}

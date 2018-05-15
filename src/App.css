@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Athiti');
-.one-section, .two-section, .tree-section, .four-section{
+.home-transfer, .transfer, .confirm-transfer, .success-transfer{
     margin: 18% 30% 30%;
     font-size: 18px;
 }
-.two-section {
+.transfer {
     margin: 15% 30% 30%;
 }
-.tree-section {
+.confirm-transfer {
     margin: 17% 30% 30%;
 }
 .border {
