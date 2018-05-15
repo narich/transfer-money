@@ -62,7 +62,9 @@ class App extends Component {
   setMoneyConfirm = () => {
     const { money, moneyTransfer, tariff, listNameTransfer } = this.state
     const calMoney = parseFloat(money) - ((parseFloat(moneyTransfer) + parseFloat(tariff)))
-    if (calMoney >= 0 && moneyTransfer !== 0 && moneyTransfer <= 30000 && listNameTransfer !== '') {
+    const limitTransfer = 30000
+    console.log(moneyTransfer)
+    if (calMoney >= 0 && moneyTransfer !== 0 && moneyTransfer > 0 && moneyTransfer <= limitTransfer && listNameTransfer !== '') {
       this.setState({
         ConfirmMoney: calMoney,
         ConfirmResultMoneyTransfer: moneyTransfer,
@@ -71,13 +73,13 @@ class App extends Component {
       })
       return document.getElementById('tree').scrollIntoView();
     }
-    else if (moneyTransfer > 30000) {
+    else if (moneyTransfer > limitTransfer) {
       alert('กรุณากรอกจำนวนเงินน้อยกว่า 30,000!!')
     }
     else if (listNameTransfer === '') {
       alert('กรุณาเลือกบัญชีโอน!!')
     }
-    else if (moneyTransfer === 0 || moneyTransfer === '') {
+    else if (moneyTransfer === 0 || moneyTransfer === '' || moneyTransfer <= 0) {
       alert('กรุณาระบุจำนวนเงิน!!')
     }
     else {
