@@ -24,18 +24,14 @@ class App extends Component {
       ConfirmResultListNameTransfer: 0,
       ConfirmResultMoneyTransfer: 0,
       ConfirmResultMoneyTariff: 0
-
     }
-    this.setStateMoney = this.setStateMoney.bind(this)
-    this.calculateMoney = this.calculateMoney.bind(this)
-    this.setStateNameTransfer = this.setStateNameTransfer.bind(this)
   }
   setStateNameTransfer = (event) => {
     this.setState({
       listNameTransfer: event.target.value
     })
   }
-  setStateMoney(event) {
+  setStateMoney = (event) => {
     const { moneyTransfer } = this.state
     this.setState({
       moneyTransfer: event.target.value,
