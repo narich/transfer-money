@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import style from './App.css'
 import HomeTransfer from './HomeTransfer'
 import Transfer from './Transfer'
 import SuccessTransfer from './SuccessTransfer'
 import ConfirmTransfer from './ConfirmTransfer'
 import Layout from './Layout'
 import Button from './Button'
+import './App.css'
 
 class App extends Component {
 
